@@ -1,6 +1,6 @@
-package com.maksimkaxxl.foodhuborderingplatform.entity;
+package com.maksimkaxxl.persistense.entity;
 
-import com.maksimkaxxl.foodhuborderingplatform.entity.abstractentity.BaseEntity;
+import com.maksimkaxxl.persistense.entity.abstractentity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
