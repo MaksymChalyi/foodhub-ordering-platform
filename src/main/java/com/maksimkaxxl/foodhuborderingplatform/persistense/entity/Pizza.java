@@ -1,6 +1,6 @@
-package com.maksimkaxxl.persistense.entity;
+package com.maksimkaxxl.foodhuborderingplatform.persistense.entity;
 
-import com.maksimkaxxl.persistense.entity.abstractentity.BaseEntity;
+import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.abstractentity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

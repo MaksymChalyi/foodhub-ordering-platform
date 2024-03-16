@@ -1,4 +1,4 @@
-package com.maksimkaxxl.persistense.entity.abstractentity;
+package com.maksimkaxxl.foodhuborderingplatform.persistense.entity.abstractentity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
