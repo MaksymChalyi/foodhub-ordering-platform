@@ -33,6 +33,6 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public List<Ingredient> findAll() {
-        return null;
+        return ingredientRepository.findAll();
     }
 }

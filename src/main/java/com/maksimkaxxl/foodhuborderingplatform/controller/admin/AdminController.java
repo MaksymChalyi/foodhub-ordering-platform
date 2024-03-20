@@ -7,10 +7,9 @@ import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.Pizza;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -27,9 +26,15 @@ public class AdminController {
     }
 
     @PostMapping(value = "/ingredient")
-    public ResponseEntity<Pizza> createNewIngredient(@RequestBody Ingredient ingredient) {
+    public ResponseEntity<Ingredient> createNewIngredient(@RequestBody Ingredient ingredient) {
         ingredientService.create(ingredient);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping(value = "/ingredients")
+    public ResponseEntity<List<Ingredient>> getAllIngredients() {
+        List<Ingredient> ingredients = ingredientService.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(ingredients);
     }
 
 
