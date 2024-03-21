@@ -1,14 +1,17 @@
-package com.maksimkaxxl.foodhuborderingplatform.entity;
+package com.maksimkaxxl.foodhuborderingplatform.persistense.entity;
 
-import com.maksimkaxxl.foodhuborderingplatform.entity.abstractentity.BaseEntity;
+import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.abstractentity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
 @Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Table(name = "pizzas")
 public class Pizza extends BaseEntity {
@@ -26,8 +29,8 @@ public class Pizza extends BaseEntity {
     @ManyToMany
     @JoinTable(
             name = "pizza_ingredients",
-            joinColumns = @JoinColumn(name = "pizza_id"),
-            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+            joinColumns = @JoinColumn(name = "pizzas_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredients_id")
     )
     private List<Ingredient> ingredients;
 
