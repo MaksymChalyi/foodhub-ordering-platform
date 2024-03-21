@@ -3,10 +3,12 @@ package com.maksimkaxxl.foodhuborderingplatform.persistense.entity;
 import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.abstractentity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @NoArgsConstructor

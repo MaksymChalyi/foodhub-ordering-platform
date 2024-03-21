@@ -13,6 +13,9 @@ public interface IngredientService extends BaseService<Ingredient> {
 
     List<Ingredient> findAll();
 
+    boolean delete(Long id);
 
+
+    void update(Ingredient existingIngredient);
 }
 

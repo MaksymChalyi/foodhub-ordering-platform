@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -20,4 +22,7 @@ public class Ingredient extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "price", precision = 10, scale = 2)
+    private BigDecimal price;
 }
