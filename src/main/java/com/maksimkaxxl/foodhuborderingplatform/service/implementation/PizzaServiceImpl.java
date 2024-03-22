@@ -31,4 +31,15 @@ public class PizzaServiceImpl implements PizzaService {
     public List<Pizza> findAll() {
         return null;
     }
+
+    @Override
+    public boolean delete(Long id) {
+        var ingredient = pizzaRepository.findById(id);
+        if (ingredient.isPresent()) {
+            pizzaRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -23,6 +23,12 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
+    public Ingredient findByName(String name) {
+        return ingredientRepository.findByName(name);
+    }
+
+
+    @Override
     public void create(Ingredient ingredient) {
         ingredientRepository.save(ingredient);
     }

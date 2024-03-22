@@ -13,5 +13,7 @@ public interface PizzaService extends BaseService<Pizza> {
 
     List<Pizza> findAll();
 
+    boolean delete(Long id);
+
 
 }

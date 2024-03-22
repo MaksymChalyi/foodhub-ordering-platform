@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -20,7 +21,7 @@ public class Pizza extends BaseEntity {
     private String name;
 
     @Column(name = "price")
-    private double price;
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

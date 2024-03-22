@@ -70,5 +70,15 @@ public class AdminController {
         }
     }
 
+    @DeleteMapping(value = "/pizza/{pizzaId}")
+    public ResponseEntity<Void> deletePizza(@PathVariable Long pizzaId) {
+        boolean deleted = pizzaService.delete(pizzaId);
+        if (deleted) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }
