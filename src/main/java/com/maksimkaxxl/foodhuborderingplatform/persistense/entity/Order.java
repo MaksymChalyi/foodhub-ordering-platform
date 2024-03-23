@@ -19,8 +19,8 @@ public class Order extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<Pizza> pizzas;
+/*    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<Pizza> pizzas;*/
 
     @Column(name = "total_price")
     private double totalPrice;

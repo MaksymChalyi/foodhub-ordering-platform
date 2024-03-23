@@ -23,9 +23,9 @@ public class Pizza extends BaseEntity {
     @Column(name = "price")
     private BigDecimal price;
 
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Order order;*/
 
     @ManyToMany
     @JoinTable(

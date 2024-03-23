@@ -19,7 +19,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public Pizza findById(Long id) {
-        return null;
+        return pizzaRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public List<Pizza> findAll() {
-        return null;
+        return pizzaRepository.findAll();
     }
 
     @Override
