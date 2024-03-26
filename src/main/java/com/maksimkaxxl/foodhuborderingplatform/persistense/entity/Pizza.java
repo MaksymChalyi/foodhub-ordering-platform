@@ -17,15 +17,14 @@ import java.util.List;
 @Table(name = "pizzas")
 public class Pizza extends BaseEntity {
 
+    @Column(name = "photo_url")
+    private String photo_url;
+
     @Column(name = "name")
     private String name;
 
     @Column(name = "price")
     private BigDecimal price;
-
-/*    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;*/
 
     @ManyToMany
     @JoinTable(

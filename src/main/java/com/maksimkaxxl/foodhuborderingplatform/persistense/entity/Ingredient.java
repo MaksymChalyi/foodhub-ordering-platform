@@ -17,6 +17,9 @@ import java.math.BigDecimal;
 @Table(name = "ingredients")
 public class Ingredient extends BaseEntity {
 
+    @Column(name = "photo_url")
+    private String photo_url;
+
     @Column(name = "name")
     private String name;
 

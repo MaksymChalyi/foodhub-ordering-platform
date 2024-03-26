@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -15,15 +16,20 @@ import java.util.List;
 @Table(name = "orders")
 public class Order extends BaseEntity {
 
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user;*/
 
-/*    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<Pizza> pizzas;*/
+    @ManyToMany
+    @JoinTable(
+            name = "order_pizzas",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "pizza_id")
+    )
+    private List<Pizza> pizzas;
 
     @Column(name = "total_price")
-    private double totalPrice;
+    private BigDecimal totalPrice;
 
 
 }

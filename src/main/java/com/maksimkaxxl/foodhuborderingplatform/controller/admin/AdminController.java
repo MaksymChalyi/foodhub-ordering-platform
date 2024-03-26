@@ -1,14 +1,18 @@
 package com.maksimkaxxl.foodhuborderingplatform.controller.admin;
 
+import com.maksimkaxxl.foodhuborderingplatform.persistense.dto.PizzaOrderDTO;
 import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.Ingredient;
 import com.maksimkaxxl.foodhuborderingplatform.persistense.entity.Pizza;
+import com.maksimkaxxl.foodhuborderingplatform.persistense.mapper.PizzaMapper;
 import com.maksimkaxxl.foodhuborderingplatform.service.IngredientService;
+import com.maksimkaxxl.foodhuborderingplatform.service.PizzaPriceCalculator;
 import com.maksimkaxxl.foodhuborderingplatform.service.PizzaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +23,17 @@ public class AdminController {
 
     private PizzaService pizzaService;
     private IngredientService ingredientService;
+    private PizzaPriceCalculator pizzaPriceCalculator;
+    private PizzaMapper pizzaMapper;
+
 
     @PostMapping(value = "/pizza")
-    public ResponseEntity<Pizza> createNewPizza(@RequestBody Pizza pizza) { // TODO: refactor this method and complete them
+    public ResponseEntity<Pizza> createNewPizza(@RequestBody PizzaOrderDTO pizzaOrderDTO) {
+        Pizza pizza = pizzaMapper.mapToEntity(pizzaOrderDTO);
+        BigDecimal pizzaPrice = pizzaPriceCalculator.calculatePizzaPrice(pizza);
+        pizza.setPrice(pizzaPrice);
         pizzaService.create(pizza);
+
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

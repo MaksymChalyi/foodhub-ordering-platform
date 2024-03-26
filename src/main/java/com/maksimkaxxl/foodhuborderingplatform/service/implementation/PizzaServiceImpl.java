@@ -23,6 +23,11 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
+    public Pizza findByName(String name) {
+        return pizzaRepository.findByName(name);
+    }
+
+    @Override
     public void create(Pizza pizza) {
         pizzaRepository.save(pizza);
     }
